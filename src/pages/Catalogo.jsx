@@ -30,7 +30,6 @@ export default function Catalogo() {
   return (
     <div className="catalogo-layout">
 
-      {/* BOTÓN MOBILE */}
       <button 
         className="btn btn-success filtro-toggle"
         onClick={() => setFiltrosAbiertos(!filtrosAbiertos)}
@@ -38,7 +37,6 @@ export default function Catalogo() {
         ☰ Filtros
       </button>
 
-      {/* FILTROS */}
       <aside className={`catalogo-filtros ${filtrosAbiertos ? "open" : "closed"}`}>
         <h5 className="filtro-title">Categorías</h5>
 
@@ -66,7 +64,6 @@ export default function Catalogo() {
         </div>
       </aside>
 
-      {/* PRODUCTOS */}
       <section className="catalogo-productos">
         <div className="row g-3">
           {productosFiltrados.map(producto => (

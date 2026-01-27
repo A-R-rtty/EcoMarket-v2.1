@@ -1,7 +1,22 @@
+/* =========================================================
+   PERFIL
+   ---------------------------------------------------------
+   Contenedor general del componente de perfil.
+   Controla tipografía base, centrado en pantalla y layout
+   de la tarjeta de usuario.
+   ========================================================= */
+
 .Perfil{
+
+    /* Fuente base del componente */
     .html{
         font-family: 'Segoe UI';
     }
+
+    /* Contenedor principal:
+       - Flexbox
+       - Centrado horizontal y vertical
+       - Área visual del perfil */
     .container{
         width: 100%;
         height: 900px;
@@ -10,6 +25,11 @@
         align-items: center;
         border: 1px solid black;
     }
+
+    /* Tarjeta del perfil:
+       - Estructura vertical
+       - Fondo oscuro
+       - Diseño tipo card */
     .carta{
         width: 450px;
         border: 1px solid black;
@@ -21,12 +41,21 @@
         background: rgb(26,26,26);
         color: rgb(240, 240, 240);
     }
+
+    /* Imagen de fondo de la tarjeta:
+       - Superposición
+       - Control de capas visuales */
     .fondoCarta{
         margin-top: -7rem;
         width: 500px;
         height: auto;
         z-index: 1;
     }
+
+    /* Foto de perfil:
+       - Posicionada sobre el fondo
+       - Efecto de superposición
+       - Forma circular */
     .fotoPerfil{
         position: relative;
         margin-top: -4.5rem;
@@ -35,29 +64,52 @@
         border: 2px solid black;
         z-index: 2;
     }
+
+    /* Nombre del perfil */
     .carta p:nth-child(3){
         margin-top: 0.5rem;
         font-size: 25px;
         font-weight: bold;
     }
+
+    /* Subtítulo del perfil */
     .carta p:nth-child(4){
         font-size: 20px;
         margin-top: -24px;
     }
 }
 
+
+/* =========================================================
+   BOTÓN DE CATEGORÍA ACTIVO
+   ---------------------------------------------------------
+   Estilo visual del filtro activo en catálogo
+   ========================================================= */
+
 .btn-categoria.active {
     background-color: #198754;
     color: white;
 }
 
-/* NAVBAR BASE */
+
+/* =========================================================
+   NAVBAR BASE
+   ---------------------------------------------------------
+   Estilo principal de la barra de navegación
+   ========================================================= */
 
 .navbar{
-  background: linear-gradient(90deg, #0f3d2e, #1b5e4b); 
+  background: linear-gradient(90deg, #0f3d2e, #1b5e4b);
 }
 
-/* CONTENEDOR GENERAL */
+
+/* =========================================================
+   CONTENEDOR GENERAL NAVBAR
+   ---------------------------------------------------------
+   Layout principal del contenido del navbar
+   Organización izquierda / derecha
+   ========================================================= */
+
 #navbarSupportedContent{
   display: flex;
   justify-content: space-between;
@@ -65,7 +117,12 @@
   width: 100%;
 }
 
-/* LEFT SIDE */
+
+/* =========================================================
+   SECCIÓN IZQUIERDA NAVBAR
+   ---------------------------------------------------------
+   Contiene buscador y carrito
+   ========================================================= */
 
 .nav-left{
   display: flex;
@@ -73,20 +130,31 @@
   gap: 15px;
 }
 
-/* SEARCH */
+
+/* =========================================================
+   BUSCADOR
+   ---------------------------------------------------------
+   Contenedor del input + botón de búsqueda
+   ========================================================= */
 
 .search-box{
   display: flex;
   align-items: center;
-  background: #f1faf6; 
+  background: #f1faf6;
   border-radius: 30px;
   padding: 4px;
   border: 1px solid #b7e1cd;
 }
 
-/* BOTÓN BUSCAR */
+
+/* =========================================================
+   BOTÓN DE BÚSQUEDA
+   ---------------------------------------------------------
+   Botón circular con animación hover
+   ========================================================= */
+
 .btn-search{
-  background: #2e8b6f; 
+  background: #2e8b6f;
   border: none;
   color: white;
   padding: 8px 12px;
@@ -99,13 +167,19 @@
   transform: scale(1.05);
 }
 
-/* INPUT */
+
+/* =========================================================
+   INPUT DE BÚSQUEDA
+   ---------------------------------------------------------
+   Campo de texto principal del buscador
+   ========================================================= */
+
 .search-input{
   border: none;
   outline: none;
   background: transparent;
   padding: 8px 12px;
-  width: 600px; 
+  width: 600px;
   color: #1f4033;
 }
 
@@ -113,7 +187,12 @@
   color: #5f8f7b;
 }
 
-/* CART */
+
+/* =========================================================
+   CARRITO
+   ---------------------------------------------------------
+   Ícono del carrito + badge de cantidad
+   ========================================================= */
 
 .cart-link{
   color: #e8fff6;
@@ -133,8 +212,11 @@
 }
 
 
-/* RIGHT MENU */
-
+/* =========================================================
+   MENÚ DERECHO NAVBAR
+   ---------------------------------------------------------
+   Links de navegación
+   ========================================================= */
 
 .nav-right{
   display: flex;
@@ -153,7 +235,13 @@
   transform: translateY(-1px);
 }
 
-/* DROPDOWN */
+
+/* =========================================================
+   DROPDOWN
+   ---------------------------------------------------------
+   Menú desplegable del navbar
+   ========================================================= */
+
 .dropdown-menu{
   background: #f1faf6;
   border-radius: 12px;
@@ -166,8 +254,11 @@
 }
 
 
-/* RESPONSIVE */
-
+/* =========================================================
+   RESPONSIVE NAVBAR
+   ---------------------------------------------------------
+   Adaptación mobile / tablet
+   ========================================================= */
 
 @media (max-width: 991px){
 
@@ -183,7 +274,7 @@
   }
 
   .search-input{
-    width: 100%; 
+    width: 100%;
   }
 
   .search-box{
@@ -197,6 +288,13 @@
   }
 
 }
+
+
+/* =========================================================
+   LINKS GENERALES
+   ---------------------------------------------------------
+   Estilo base para etiquetas <a>
+   ========================================================= */
 
 a{
     text-decoration: none;
