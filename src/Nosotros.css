@@ -1,3 +1,14 @@
+/* =========================================================
+   PÁGINA NOSOTROS
+   ---------------------------------------------------------
+   Contenedor principal de la vista "Nosotros".
+   Define:
+   - Altura mínima de pantalla completa
+   - Centrado horizontal
+   - Separación superior/inferior
+   - Estructura base del layout
+   ========================================================= */
+
 .nosotros-page{
   min-height: 100vh;
   padding: 40px 0;
@@ -5,6 +16,17 @@
   justify-content: center;
   align-items: flex-start;
 }
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+   ---------------------------------------------------------
+   Contenedor visual del contenido:
+   - Fondo claro
+   - Sombra
+   - Bordes redondeados
+   - Caja central del contenido
+   ========================================================= */
 
 .nosotros-card{
   background: #fff9eeeb;
@@ -16,7 +38,15 @@
   padding: 36px;
 }
 
-/* TITULOS */
+
+/* =========================================================
+   TÍTULOS
+   ---------------------------------------------------------
+   Jerarquía visual de encabezados:
+   - Título principal
+   - Subtítulos
+   - Subtítulos secundarios
+   ========================================================= */
 
 .nosotros-title{
   color: #8B4513;
@@ -34,7 +64,16 @@
   margin-top: 28px;
 }
 
-/* CONTENIDO */
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ---------------------------------------------------------
+   Texto base de la página:
+   - Tamaño de fuente
+   - Legibilidad
+   - Ancho máximo
+   - Espaciado de líneas
+   ========================================================= */
 
 .nosotros-content{
   color: #333;
@@ -43,6 +82,16 @@
   line-height: 1.7;
   margin-bottom: 26px;
 }
+
+
+/* =========================================================
+   LISTAS
+   ---------------------------------------------------------
+   Listas informativas:
+   - Separación
+   - Identación
+   - Espaciado entre ítems
+   ========================================================= */
 
 .nosotros-list{
   margin: 16px 0;
@@ -53,7 +102,12 @@
   margin-bottom: 8px;
 }
 
-/* MAIL */
+
+/* =========================================================
+   CORREO DE CONTACTO
+   ---------------------------------------------------------
+   Estilo visual del enlace de email
+   ========================================================= */
 
 .nosotros-mail{
   color: #2E8B57;
@@ -65,7 +119,15 @@
   text-decoration: underline;
 }
 
-/* MAPA */
+
+/* =========================================================
+   MAPA
+   ---------------------------------------------------------
+   Contenedor del iframe de Google Maps:
+   - Bordes redondeados
+   - Control de overflow
+   - Responsive
+   ========================================================= */
 
 .nosotros-map{
   margin-top: 18px;
@@ -80,7 +142,12 @@
   border: 0;
 }
 
-/* SUCURSALES */
+
+/* =========================================================
+   SUCURSALES
+   ---------------------------------------------------------
+   Lista de direcciones físicas
+   ========================================================= */
 
 .nosotros-branches{
   font-size: 15px;
@@ -89,7 +156,14 @@
   padding-left: 18px;
 }
 
-/* CAJA FINAL */
+
+/* =========================================================
+   CAJA FINAL
+   ---------------------------------------------------------
+   Bloque informativo inferior:
+   - Mensaje institucional
+   - Información de atención virtual
+   ========================================================= */
 
 .nosotros-footer-box{
   margin-top: 28px;
