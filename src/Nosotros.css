@@ -1,0 +1,101 @@
+.nosotros-page{
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nosotros-card{
+  background: #fff9eeeb;
+  max-width: 950px;
+  width: 95%;
+  margin: auto;
+  border-radius: 18px;
+  box-shadow: 0 5px 28px rgba(0,0,0,0.15);
+  padding: 36px;
+}
+
+/* TITULOS */
+
+.nosotros-title{
+  color: #8B4513;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.nosotros-subtitle{
+  margin-top: 32px;
+  color: #2E8B57;
+}
+
+.nosotros-subtitle-small{
+  color: #8B4513;
+  margin-top: 28px;
+}
+
+/* CONTENIDO */
+
+.nosotros-content{
+  color: #333;
+  max-width: 700px;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+.nosotros-list{
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.nosotros-list li{
+  margin-bottom: 8px;
+}
+
+/* MAIL */
+
+.nosotros-mail{
+  color: #2E8B57;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.nosotros-mail:hover{
+  text-decoration: underline;
+}
+
+/* MAPA */
+
+.nosotros-map{
+  margin-top: 18px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.nosotros-map iframe{
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
+/* SUCURSALES */
+
+.nosotros-branches{
+  font-size: 15px;
+  color: #6a5027;
+  margin-top: 18px;
+  padding-left: 18px;
+}
+
+/* CAJA FINAL */
+
+.nosotros-footer-box{
+  margin-top: 28px;
+  background: #F3F7F0;
+  padding: 16px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #4c622a;
+}

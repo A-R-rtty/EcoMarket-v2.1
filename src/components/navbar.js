@@ -5,16 +5,17 @@ import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
-
+//Link = navega sin recargar la pagina osea que mantiene el estado sin perder cosas, como, si al agregar a carrito se suma 1 con a href, este recagra pagina y se pierde, link no lo hace, a ref se usa para buscar o mandar a otra pagina web, y link para una ruta de la misma app
 function NavBarPrincipal() {
 
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a className="navbar-brand" href="Home.html">
+                <Link className="navbar-brand" to="/">
                     <img src="images/Logo-Claro.png" style={{ width: 150 }} alt />
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
@@ -29,22 +30,23 @@ function NavBarPrincipal() {
                             <input className="form-control search-input" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" />
                         </form>
                         {/* CARRITO */}
-                        <a href="Carrito.html" className="cart-link position-relative">
+                        <Link to="/carrito" className="cart-link position-relative">
+
                             <FontAwesomeIcon icon={faShoppingCart} />
                             <span id="cantidadCarrito" className="badge rounded-pill bg-success">0</span>
-                        </a>
+                        </Link>
                     </div>
                     {/* DERECHA: MENÚ */}
                     <ul className="navbar-nav nav-right">
                         <li className="nav-item">
-                            <a className="nav-link" href="Catalogo.html">
+                            <Link className="nav-link" to="/catalogo">
                                 <FontAwesomeIcon icon={faLeaf} /> Catalogo
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="Nosotros.html">
+                            <Link className="nav-link" to="/nosotros">
                                 <FontAwesomeIcon icon={faUsers} /> Nosotros
-                            </a>
+                            </Link>
                         </li>
                         {/* PERFIL */}
                         <li className="nav-item dropdown">
@@ -52,8 +54,12 @@ function NavBarPrincipal() {
                                 <FontAwesomeIcon icon={faUser} /> Cuenta
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end">
-                                <li><a className="dropdown-item" href="#">Iniciar Sesión</a></li>
-                                <li><a className="dropdown-item" href="#">Registrarse</a></li>
+                                <li><Link className="dropdown-item" to="/login">
+                                    Iniciar Sesión
+                                </Link></li>
+                                <li><Link className="dropdown-item" to="/register">
+                                    Registrarse
+                                </Link></li>
                             </ul>
                         </li>
                     </ul>
