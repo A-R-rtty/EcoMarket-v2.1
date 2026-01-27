@@ -5,6 +5,7 @@ import NavBarPrincipal from './components/navbar';
 import CarouselPrincipal from './components/carousel';
 import './style.css';
 import Footer from './components/footer';
+import CardNosotros from './components/cardNosotros';
 
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
 
         <Bienvenida />
       </div>
+      <div>
+      </div>
+        <CardNosotros/>
+      <br/>
       <Footer/>
     </div>
   );
