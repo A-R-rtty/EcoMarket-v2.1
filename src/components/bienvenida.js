@@ -1,14 +1,11 @@
 import react from 'react';
 import CarouselPrincipal from './card';
 import CardProducto from './card';
-import { Link } from "react-router-dom";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Bienvenida() {
 
     return (
-        <div className='container'>
+        <div>
             <div className='row'>
                 <div className='col-xl-12'>
                     <br />
@@ -19,26 +16,17 @@ function Bienvenida() {
 
             <div className='row'>
                 <div className='col-xl-3'>
-                    <CardProducto titulo='Lataffa' desc='Body Spray Armaf Odyssey Odyssey Home For Men 200 Ml'
-                        ruta='/images/PerfubeArabe.jpg' rutaproducto='/producto/12' />
+                    <CardProducto titulo='Lataffa' desc='Body Spray Armaf Odyssey Odyssey Home For Men 200 Ml'/>
                 </div>
                 <div className='col-xl-3'>
-                    <CardProducto titulo='Lataffa' desc='Perfume Mujer Lattafa Yara Tous EDP 100 Ml' ruta='/images/perfumearab.jpg' rutaproducto='/producto/15'/>
+                    <CardProducto titulo='Lataffa' desc='Perfume Mujer Lattafa Yara Tous EDP 100 Ml'/>
                 </div>
                 <div className='col-xl-3'>
-                    <CardProducto titulo='Lataffa' desc='Perfume Mujer Lattafa Fakhar Gold Extrait EDP 100 Ml' ruta='/images/perfume.jpg' rutaproducto='/producto/13'/>
+                    <CardProducto titulo='Lataffa' desc='Perfume Mujer Lattafa Fakhar Gold Extrait EDP 100 Ml'/>
                 </div>
                 <div className='col-xl-3'>
-                    <CardProducto titulo='Lataffa' desc='Perfume Hombre Lattafa Ana Abiyedh Rouge EDP 60 Ml'
-                        ruta='/images/PerfubeArabe2.jpg' rutaproducto='/producto/11'/>
+                    <CardProducto titulo='Lataffa' desc='Perfume Hombre Lattafa Ana Abiyedh Rouge EDP 60 Ml'/>
                 </div>
-            </div>
-            <br/>
-            <div className='text-center d-grid gap-2 col-6 mx-auto'>
-                <Link to='/Catalogo'>
-                    <a className="btn btn-outline-success"> Ver más
-                        productos</a>
-                </Link>
             </div>
         </div>
 

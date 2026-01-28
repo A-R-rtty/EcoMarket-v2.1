@@ -1,7 +1,6 @@
 import React from "react";
 import Bienvenida from "../components/bienvenida";
 import CarouselPrincipal from "../components/carousel";
-import CardNosotros from "../components/cardNosotros";
 
 function Home() {
   return (
@@ -9,7 +8,6 @@ function Home() {
       <CarouselPrincipal />
       <div className="container">
         <Bienvenida />
-        <CardNosotros/>
       </div>
     </>
   );
