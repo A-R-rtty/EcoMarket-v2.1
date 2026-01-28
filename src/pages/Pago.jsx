@@ -8,7 +8,7 @@ export default function Pago(){
 
     const { carrito, total, clearCarrito } = useCart()
     const { user } = useUser()
-    const { order, setEnvio, setPago, avanzarEstado } = useOrder()
+    const { order, setEnvio, setPago, crearOrden } = useOrder()   // 👈 aquí
     const navigate = useNavigate()
 
     const [error, setError] = useState("")
@@ -49,7 +49,16 @@ export default function Pago(){
             return
         }
 
-        avanzarEstado("confirmado")
+        // ✅ AQUÍ SE CREA LA ORDEN REAL
+        crearOrden({
+            productos: carrito,
+            total: total,
+            envioTipo: order.envioTipo,
+            pagoMetodo: order.pagoMetodo,
+            direccion: user.direccion,
+            telefono: user.telefono
+        })
+
         clearCarrito()
         navigate("/confirmacion")    
     }
@@ -61,29 +70,47 @@ export default function Pago(){
 
             <h4>Tipo de Envío</h4>
 
-            <button onClick={() => setEnvio("express")} className={order.envioTipo === "express" ? "active" : ""}>
+            <button 
+                onClick={() => setEnvio("express")} 
+                className={order.envioTipo === "express" ? "active" : ""}
+            >
                 🚚 Envío Express 
             </button>
 
-            <button onClick={() => setEnvio("estandar")} className={order.envioTipo === "estandar" ? "active" : ""}>
+            <button 
+                onClick={() => setEnvio("estandar")} 
+                className={order.envioTipo === "estandar" ? "active" : ""}
+            >
                 🚛 Envío Estándar 
             </button>
 
-            <button onClick={() => setEnvio("retiro")} className={order.envioTipo === "retiro" ? "active" : ""}>
+            <button 
+                onClick={() => setEnvio("retiro")} 
+                className={order.envioTipo === "retiro" ? "active" : ""}
+            >
                 🏬 Retiro en Sucursal 
             </button>
 
             <h4>Método de Pago</h4>
 
-            <button onClick={() => setPago("credito")} className={order.pagoMetodo === "credito" ? "active" : ""}>
+            <button 
+                onClick={() => setPago("credito")} 
+                className={order.pagoMetodo === "credito" ? "active" : ""}
+            >
                 💳 Tarjeta de Crédito
             </button>
 
-            <button onClick={() => setPago("debito")} className={order.pagoMetodo === "debito" ? "active" : ""}>
+            <button 
+                onClick={() => setPago("debito")} 
+                className={order.pagoMetodo === "debito" ? "active" : ""}
+            >
                 💳 Tarjeta de Débito
             </button>
 
-            <button onClick={() => setPago("efectivo")} className={order.pagoMetodo === "efectivo" ? "active" : ""}>
+            <button 
+                onClick={() => setPago("efectivo")} 
+                className={order.pagoMetodo === "efectivo" ? "active" : ""}
+            >
                 💵 Efectivo al recibir
             </button>
             

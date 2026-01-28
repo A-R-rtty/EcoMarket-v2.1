@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useCart } from "../global/CarritoContext"
 
 export default function Carrito() {
+
   const { cart, removeFromCart, updateCantidad, clearCart } = useCart()
+  const navigate = useNavigate()   // 👈
 
   const total = cart.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
 
@@ -18,7 +20,7 @@ export default function Carrito() {
           {cart.map(p => (
             <div key={p.id} className="d-flex align-items-center border-bottom py-2">
 
-              <img src={p.imagen} width="60" />
+              <img src={p.imagen} width="60" alt={p.nombre} />
 
               <div className="ms-3 flex-grow-1">
                 <h6>{p.nombre}</h6>
@@ -50,8 +52,11 @@ export default function Carrito() {
               Vaciar carrito
             </button>
 
-            <button className="btn btn-success">
-              <Link to="/pago">Pagar</Link>
+            <button 
+              className="btn btn-success"
+              onClick={() => navigate("/checkout")}
+            >
+              Pagar
             </button>
           </div>
         </>

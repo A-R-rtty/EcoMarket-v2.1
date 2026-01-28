@@ -3,38 +3,38 @@ import { useOrder } from "../global/OrderGlobal"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-
 export default function Checkout() {
     const { user } = useUser()
-    const { avanzarEstado } = useOrder()
+    const { avanzarEstado, setEnvio } = useOrder()   // 👈 ahora sí usamos setEnvio
     const navigate = useNavigate()
+
+    const [envio, setEnvioLocal] = useState(null)     // 👈 estado local real
 
     const handleIrAPago = () => {
 
-    // validar perfil
-    if (!user.direccion || !user.telefono) {
+        // validar perfil
+        if (!user.direccion || !user.telefono) {
 
-        const irPerfil = window.confirm(
-            "Para continuar necesitas completar tu dirección y teléfono.\n\n¿Quieres ir a tu perfil ahora?"
-        )
+            const irPerfil = window.confirm(
+                "Para continuar necesitas completar tu dirección y teléfono.\n\n¿Quieres ir a tu perfil ahora?"
+            )
 
-        if (irPerfil) {
-            navigate("/perfil")
+            if (irPerfil) {
+                navigate("/perfil")
+            }
+
+            return
         }
 
-        return
+        // validar envío
+        if (!envio) {
+            alert("Debes seleccionar un tipo de envío")
+            return
+        }
+
+        avanzarEstado("pago")
+        navigate("/pago")
     }
-
-    // validar envío
-    if (!envio) {
-        alert("Debes seleccionar un tipo de envío")
-        return
-    }
-
-    avanzarEstado("pago")
-    navigate("/pago")
-}
-
 
     return (
         <div>
@@ -46,7 +46,10 @@ export default function Checkout() {
                     type="radio"
                     name="envio"
                     value="estandar"
-                    onChange={() => setEnvio("Envío estándar")}
+                    onChange={() => {
+                        setEnvioLocal("estandar")   // local
+                        setEnvio("estandar")        // global
+                    }}
                 />
                 Envío estándar (3-5 días)
             </label>
@@ -56,7 +59,10 @@ export default function Checkout() {
                     type="radio"
                     name="envio"
                     value="express"
-                    onChange={() => setEnvio("Envío express")}
+                    onChange={() => {
+                        setEnvioLocal("express")
+                        setEnvio("express")
+                    }}
                 />
                 Envío express (24 hrs)
             </label>
@@ -66,7 +72,10 @@ export default function Checkout() {
                     type="radio"
                     name="envio"
                     value="retiro"
-                    onChange={() => setEnvio("Retiro en sucursal")}
+                    onChange={() => {
+                        setEnvioLocal("retiro")
+                        setEnvio("retiro")
+                    }}
                 />
                 Retiro en sucursal
             </label>

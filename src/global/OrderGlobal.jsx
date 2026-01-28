@@ -13,6 +13,11 @@ export function OrderProvider({ children }) {
         const saved = localStorage.getItem("currentOrder")
         return saved ? JSON.parse(saved) : null
     })
+        const [order, setOrder] = useState({
+        envioTipo: null,
+        pagoMetodo: null
+    })
+
 
 
     useEffect(() => {
@@ -75,8 +80,21 @@ export function OrderProvider({ children }) {
         }, 9000)
     }
 
+    function setEnvio(tipo) {
+        setOrder(prev => ({ ...prev, envioTipo: tipo }))
+    }
 
-    function limpiarOrdenActual(){
+    function setPago(metodo) {
+        setOrder(prev => ({ ...prev, pagoMetodo: metodo }))
+    }
+
+    function avanzarEstado(estado) {
+        if (currentOrder) {
+            actualizarEstado(currentOrder.id, estado)
+        }
+    }
+
+    function limpiarOrdenActual() {
         setCurrentOrder(null)
         localStorage.removeItem("currentOrder")
     }
@@ -85,10 +103,15 @@ export function OrderProvider({ children }) {
         <OrderContext.Provider value={{
             orders,
             currentOrder,
+            order,
+            setEnvio,
+            setPago,
             crearOrden,
             actualizarEstado,
+            avanzarEstado,
             limpiarOrdenActual
         }}>
+
             {children}
         </OrderContext.Provider>
     )
