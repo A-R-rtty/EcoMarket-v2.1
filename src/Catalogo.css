@@ -1,5 +1,5 @@
 .catalogo-layout{
-  display: grid;
+  display: block;
   grid-template-columns: 260px 1fr;
   gap: 24px;
   padding: 20px;
