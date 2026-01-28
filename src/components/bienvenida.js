@@ -2,8 +2,8 @@ import react from 'react';
 import CarouselPrincipal from './card';
 import CardProducto from './card';
 import { Link } from "react-router-dom";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";            
 
 function Bienvenida() {
 
@@ -36,7 +36,7 @@ function Bienvenida() {
             <br/>
             <div className='text-center d-grid gap-2 col-6 mx-auto'>
                 <Link to='/Catalogo'>
-                    <a className="btn btn-outline-success"> Ver más
+                    <a className="btn btn-outline-success"><FontAwesomeIcon icon={faBars} /> Ver más
                         productos</a>
                 </Link>
             </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import productos from "../data/productos";
+import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
 export default function Producto() {
   const { id } = useParams()
@@ -34,7 +36,7 @@ export default function Producto() {
           </ul>
 
           <button className="btn btn-success">
-            🛒 Agregar al carrito
+            <FontAwesomeIcon icon={faCartArrowDown} /> Agregar al carrito
           </button>
         </div>
 

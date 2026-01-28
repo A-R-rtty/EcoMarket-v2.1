@@ -1,50 +1,77 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useState } from "react"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../Catalogo.css";
+import { faCartArrowDown, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ProductCard({ producto }) {
-  const [cantidad, setCantidad] = useState(1)
+  const [cantidad, setCantidad] = useState(1);
+  const [agregado, setAgregado] = useState(false);
+
+  const aumentar = () => {
+    if (cantidad < producto.stock) {
+      setCantidad(cantidad + 1);
+    }
+  };
+
+  const disminuir = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+
+  const agregarCarrito = () => {
+    console.log("Producto agregado:", producto.nombre, "Cantidad:", cantidad);
+    setAgregado(true);
+    setTimeout(() => {
+      setAgregado(false);
+    }, 2000);
+  };
 
   return (
     <div className="producto-card d-flex">
       <div className="card h-100 w-100 shadow-sm border-0 d-flex flex-column">
-  
-        <img 
-          src={producto.imagen} 
-          className="card-img-top" 
-          alt={producto.nombre} 
+
+        <img
+          src={producto.imagen}
+          className="card-img-top"
+          alt={producto.nombre}
         />
-  
+
         <div className="card-body d-flex flex-column">
-  
+
           <h6 className="fw-bold">
-            <Link 
-              to={`/producto/${producto.id}`} 
-              className="text-decoration-none text-dark"
-            >
-              {producto.nombre}
+            <Link
+              to={`/producto/${producto.id}`} className="text-decoration-none text-dark"> {producto.nombre}
             </Link>
           </h6>
-  
+
           <span className="text-muted small">{producto.categoria}</span>
           <span className="h6 mt-2">${producto.precio}</span>
           <span className="small text-muted">
             Stock: {producto.stock}
           </span>
-  
+
+          {/* Selector de cantidad */}
           <div className="d-flex align-items-center gap-2 mt-2">
-            <button className="btn btn-outline-success btn-sm">-</button>
+            <button className="btn btn-outline-success rounded-circle" onClick={disminuir} style={{ width: "35px", height: "35px", padding: "0" }}>-</button>
             <span>{cantidad}</span>
-            <button className="btn btn-outline-success btn-sm">+</button>
+            <button className="btn btn-outline-success rounded-circle" onClick={aumentar} style={{ width: "35px", height: "35px", padding: "0" }}>+</button>
           </div>
-  
-          <button className="btn btn-success btn-sm mt-auto">
-            🛒 Agregar al carrito
+
+          <br />
+
+          {/* Botón carrito */}
+          <button className="btn btn-success btn-sm mt-auto" onClick={agregarCarrito} disabled={agregado}
+          >
+            {agregado ? (<> <FontAwesomeIcon icon={faCheck} /> Añadido </>) : (<>
+                <FontAwesomeIcon icon={faCartArrowDown} /> Agregar al carrito
+              </>)}
           </button>
-  
+
         </div>
       </div>
     </div>
-  )
+  );
 }
