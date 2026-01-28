@@ -6,13 +6,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { CartProvider } from "./global/CarritoContext";
+import { UserProvider } from "./global/UsuarioGlobal";
+import { OrderProvider } from "./global/OrderGlobal";
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
 root.render(
   <BrowserRouter>
-    <App />
+    <UserProvider>
+      <CartProvider>
+        <OrderProvider>
+          <App />
+        </OrderProvider>
+      </CartProvider>
+    </UserProvider>
   </BrowserRouter>
 );
-
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

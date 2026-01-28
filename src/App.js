@@ -1,37 +1,52 @@
-import './App.css';
-import './style.css';
+import './App.css'
+import './style.css'
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
 
-import NavBarPrincipal from './components/navbar';
-import Footer from './components/footer';
-import CardNosotros from './components/cardNosotros';
+import NavBarPrincipal from './components/navbar'
+import Footer from './components/footer'
 
-import Home from './pages/Home';
-import Catalogo from './pages/Catalogo';
-import Carrito from './pages/Carrito';
-import Nosotros from './pages/Nosotros';
-import Login from './pages/Login';
-import Producto from './pages/Producto';
-import Bienvenida from './components/bienvenida';
-
+import Home from './pages/Home'
+import Catalogo from './pages/Catalogo'
+import Carrito from './pages/Carrito'
+import Nosotros from './pages/Nosotros'
+import Producto from './pages/Producto'
+import Checkout from './pages/Checkout'
+import Pago from './pages/Pago'
+import Confirmacion from './pages/Confirmacion'
+import Perfil from './pages/Perfil'
+import Historial from './pages/Historial'
+import Login from './pages/Login'
 
 function App() {
-
   return (
-    <div>
+    <div className="app-layout">
+
       <NavBarPrincipal />
+
+      {/* RUTAS */}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/producto/:id" element={<Producto />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/login" element={<Login />} />
+
+        {/* FLUJO DE COMPRA */}
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/pago" element={<Pago />} />
+        <Route path="/confirmacion" element={<Confirmacion />} />
+
+        {/* USUARIO */}
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/historial" element={<Historial />} />
       </Routes>
+
       <Footer />
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
