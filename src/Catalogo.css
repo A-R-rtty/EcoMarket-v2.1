@@ -18,6 +18,12 @@
 .filtro-toggle{
   display: none;
 }
+.catalogo-productos{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
 
 @media (min-width: 993px){
 

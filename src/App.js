@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 
 import NavBarPrincipal from './components/navbar';
 import Footer from './components/footer';
+import CardNosotros from './components/cardNosotros';
 
 import Home from './pages/Home';
 import Catalogo from './pages/Catalogo';
@@ -12,6 +13,7 @@ import Carrito from './pages/Carrito';
 import Nosotros from './pages/Nosotros';
 import Login from './pages/Login';
 import Producto from './pages/Producto';
+import Bienvenida from './components/bienvenida';
 
 
 function App() {
@@ -19,7 +21,6 @@ function App() {
   return (
     <div>
       <NavBarPrincipal />
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
@@ -28,7 +29,6 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-
       <Footer />
     </div>
   );

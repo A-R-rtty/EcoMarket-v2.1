@@ -6,6 +6,7 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import "../style.css";
 
 //Link = navega sin recargar la pagina osea que mantiene el estado sin perder cosas, como, si al agregar a carrito se suma 1 con a href, este recagra pagina y se pierde, link no lo hace, a ref se usa para buscar o mandar a otra pagina web, y link para una ruta de la misma app
 function NavBarPrincipal() {
@@ -14,7 +15,7 @@ function NavBarPrincipal() {
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    <img src="images/Logo-Claro.png" style={{ width: 150 }} alt />
+                    <img src="/images/Logo-Claro.png" style={{ width: 150 }} alt />
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
@@ -27,7 +28,7 @@ function NavBarPrincipal() {
                                 <FontAwesomeIcon icon={faSearch} />
                                 
                             </button>
-                            <input className="form-control search-input" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" />
+                            <input className=" search-input search-box" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" />
                         </form>
                         {/* CARRITO */}
                         <Link to="/carrito" className="cart-link position-relative">
