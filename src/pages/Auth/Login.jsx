@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "../Css/style.css";
+import "../../Css/style.css";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -27,7 +27,7 @@ function Login() {
                     <h2 className='text-center'>Iniciar Sesión</h2>
                     <br/>
                     <input className="text-center d-grid gap-2 col-6 mx-auto Login-box" type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-
+                    
                     <input className="text-center d-grid gap-2 col-6 mx-auto Login-box" type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required/>
 
                     {error && <p style={{ color: "red" }}>{error}</p>}
