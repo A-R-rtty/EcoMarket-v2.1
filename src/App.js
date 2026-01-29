@@ -14,9 +14,10 @@ import Producto from './pages/Producto'
 import Checkout from './pages/Checkout'
 import Pago from './pages/Pago'
 import Confirmacion from './pages/Confirmacion'
-import Perfil from './pages/Perfil'
+import Perfil from './pages/Auth/Perfil'
 import Historial from './pages/Historial'
-import Login from './pages/Login'
+import Login from './pages/Auth/Login'
+import Register from "./pages/Auth/Register";
 
 function App() {
   return (
@@ -31,7 +32,6 @@ function App() {
         <Route path="/producto/:id" element={<Producto />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/login" element={<Login />} />
 
         {/* FLUJO DE COMPRA */}
         <Route path="/checkout" element={<Checkout />} />
@@ -40,6 +40,8 @@ function App() {
 
         {/* USUARIO */}
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/Registro" element={<Register />} />
         <Route path="/historial" element={<Historial />} />
       </Routes>
 
