@@ -1,15 +1,20 @@
 import React from 'react';
 import { faShoppingCart, faSearch, faLeaf, faUsers, faUser, faRightToBracket, faUserCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Css/style.css";
 import { useCart } from "../global/CarritoContext";
 import { useUser } from "../global/UsuarioGlobal";
 
 function NavBarPrincipal() {
-
+  const navigate = useNavigate();
   const { cart } = useCart();
-  const { user, isLogged, logout } = useUser(); // ✅ AQUÍ
+  const { user, isLogged, logout } = useUser();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   const cantidadTotal = cart.reduce((acc, p) => acc + p.cantidad, 0);
 
@@ -88,8 +93,8 @@ function NavBarPrincipal() {
                     </li>
                     <li>
                       <button
-                        className="dropdown-item text-danger"
-                        onClick={logout}
+                        className="dropdown-item"
+                        onClick={handleLogout}
                       >
                         Cerrar sesión
                       </button>
