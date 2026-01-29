@@ -1,21 +1,24 @@
-import { useOrder } from "../global/OrderGlobal"
-import { useNavigate } from "react-router-dom"
-import { useUser } from "../global/UsuarioGlobal"
-
+import { useOrder } from "../global/OrderGlobal";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../global/UsuarioGlobal";
+import "../Css/Historial.css";
 
 export default function Historial() {
-
-  const { orders, crearOrden } = useOrder()
-  const { user } = useUser()
-  const navigate = useNavigate()
+  const { orders, crearOrden } = useOrder();
+  const { user } = useUser();
+  const navigate = useNavigate();
 
   const misOrdenes = orders.filter(
     o => o.userEmail === user.email
-  )
+  );
 
   if (misOrdenes.length === 0) {
-  return <p>No hay compras registradas</p>
-}
+    return (
+      <div className="historial-container">
+        <p>No hay compras registradas</p>
+      </div>
+    );
+  }
 
   const repetirCompra = (order) => {
     crearOrden({
@@ -25,44 +28,66 @@ export default function Historial() {
       pagoMetodo: order.pagoMetodo,
       direccion: order.direccion,
       telefono: order.telefono
-    })
+    });
 
-    navigate("/confirmacion")
-  }
+    navigate("/confirmacion");
+  };
 
   return (
     <div className="historial-container">
 
-      <h2>🧾 Historial de compras</h2>
+      <h2 className="historial-title">
+        🧾 Historial de compras
+      </h2>
 
       {misOrdenes.map(order => (
-        <div key={order.id}>
-          <p>ID: {order.id}</p>
+        <div key={order.id} className="historial-card">
 
-          <div className="historial-header">
-            <span><b>ID:</b> {order.id}</span>
-            <span><b>Estado:</b> {order.estado}</span>
+          {/* HEADER */}
+          <div className="historial-info">
+            <div>
+              <span>ID:</span> {order.id}
+            </div>
+
+            <div>
+              <span>Estado:</span>{" "}
+              <span className="historial-estado">
+                {order.estado}
+              </span>
+            </div>
+
+            <div>
+              <span>Fecha:</span>{" "}
+              {new Date(order.fecha).toLocaleString()}
+            </div>
+
+            <div>
+              <span>Pago:</span> {order.pagoMetodo}
+            </div>
+
+            <div>
+              <span>Envío:</span> {order.envioTipo}
+            </div>
           </div>
 
-          <p><b>Fecha:</b> {new Date(order.fecha).toLocaleString()}</p>
-          <p><b>Total:</b> ${order.total}</p>
-          <p><b>Pago:</b> {order.pagoMetodo}</p>
-          <p><b>Envío:</b> {order.envioTipo}</p>
+          {/* TOTAL */}
+          <div className="historial-total">
+            Total: ${order.total}
+          </div>
 
+          {/* ACCIONES */}
           <div className="historial-actions">
-            <button onClick={() => navigate(`/boleta/${order.id}`)}>
-            Ver boleta
-          </button>
-
-          <button onClick={() => repetirCompra(order)}>
-            Repetir compra
-          </button>
-
+            <button
+              className="historial-btn outline"
+              onClick={() => repetirCompra(order)}
+            >
+              Ver boleta
+            </button>
           </div>
 
         </div>
       ))}
 
     </div>
-  )
+  );
 }

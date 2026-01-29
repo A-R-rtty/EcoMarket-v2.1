@@ -1,57 +1,72 @@
-import { useOrder } from "../global/OrderGlobal"
-import Tracking from "../components/Tracking"
-import Boleta from "../components/Boleta"
-import { useNavigate } from "react-router-dom"
+import { useOrder } from "../global/OrderGlobal";
+import Tracking from "../components/Tracking";
+import Boleta from "../components/Boleta";
+import { useNavigate } from "react-router-dom";
+import "../Css/Boleta.css";
+
 
 export default function Confirmacion() {
+  const { currentOrder, limpiarOrdenActual } = useOrder();
+  const navigate = useNavigate();
 
-    const { currentOrder, limpiarOrdenActual } = useOrder()
-    const navigate = useNavigate()
-
-    if (!currentOrder) return <p>No hay pedido activo</p>
-
-    const volverInicio = () => {
-        limpiarOrdenActual()
-        navigate("/")
-    }
-
-
-
+  if (!currentOrder) {
     return (
-        <div className="confirmacion-container">
+      <div className="confirmacion-container">
+        <p>No hay pedido activo</p>
+      </div>
+    );
+  }
 
-            <h2 className="confirmacion-title">
-                <i className="bi bi-check-circle-fill"></i>
-                Pedido confirmado
-            </h2>
+  const volverInicio = () => {
+    limpiarOrdenActual();
+    navigate("/");
+  };
 
-            <Tracking
-                estado={currentOrder.estado}
-                envioTipo={currentOrder.envioTipo}
-            />
-            <Boleta order={currentOrder} />
+  return (
+    <div className="confirmacion-container">
 
-            <div className="confirmacion-card">
-                <p><b>ID Pedido:</b> {currentOrder.id}</p>
-                <p><b>Total:</b> ${currentOrder.total}</p>
-                <p><b>Pago:</b> {currentOrder.pagoMetodo}</p>
-                <p><b>Envío:</b> {currentOrder.envioTipo}</p>
-            </div>
+      {/* TÍTULO */}
+      <h2 className="confirmacion-title">
+        <i className="bi bi-check-circle-fill confirmacion-icon"></i>
+        Pedido confirmado
+      </h2>
 
-            <div className="confirmacion-info">
-                {currentOrder.envioTipo === "retiro" && (
-                    <p>🏬 Pedido reservado para retiro en sucursal</p>
-                )}
+      {/* TRACKING (línea temporal) */}
+      <Tracking
+        estado={currentOrder.estado}
+        envioTipo={currentOrder.envioTipo}
+      />
 
-                {currentOrder.pagoMetodo === "debito" && (
-                    <p>💳 Pago realizado con tarjeta de débito</p>
-                )}
-            </div>
+      {/* BOLETA */}
+      <Boleta order={currentOrder} />
 
-            <button onClick={volverInicio}>
-                Volver al inicio
-            </button>
+      {/* RESUMEN */}
+      <div className="confirmacion-card">
+        <div><span>ID Pedido:</span> {currentOrder.id}</div>
+        <div><span>Total:</span> ${currentOrder.total}</div>
+        <div><span>Pago:</span> {currentOrder.pagoMetodo}</div>
+        <div><span>Envío:</span> {currentOrder.envioTipo}</div>
+      </div>
 
-        </div>
-    )
+      {/* INFO EXTRA */}
+      <div className="confirmacion-info">
+        {currentOrder.envioTipo === "retiro" && (
+          <p>🏬 Pedido reservado para retiro en sucursal</p>
+        )}
+
+        {currentOrder.pagoMetodo === "debito" && (
+          <p>💳 Pago realizado con tarjeta de débito</p>
+        )}
+      </div>
+
+      {/* ACCIÓN */}
+      <button
+        className="confirmacion-btn"
+        onClick={volverInicio}
+      >
+        Volver al inicio
+      </button>
+
+    </div>
+  );
 }
