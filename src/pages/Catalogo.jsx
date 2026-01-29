@@ -47,10 +47,7 @@ export default function Catalogo() {
     <div className="catalogo-layout">
 
       {/* BOTÓN FILTROS MOBILE */}
-      <button
-        className="btn btn-success filtro-toggle"
-        onClick={() => setFiltrosAbiertos(prev => !prev)}
-      >
+      <button className="btn btn-success filtro-toggle" onClick={() => setFiltrosAbiertos(prev => !prev)}>
         <FontAwesomeIcon icon={faBars} /> Filtros
       </button>
 
@@ -68,74 +65,28 @@ export default function Catalogo() {
 
         <div className="filtro-categorias">
           {categorias.map(cat => (
-            <button
-              key={cat}
-              className={`filtro-btn ${categoriaActiva === cat ? "active" : ""}`}
-              onClick={() => {
-                setCategoriaActiva(cat);
-                setFiltrosAbiertos(false);
-              }}
-            >
-              {cat}
+            <button key={cat} className={`filtro-btn ${categoriaActiva === cat ? "active" : ""}`}  onClick={() => { setCategoriaActiva(cat); setFiltrosAbiertos(false); }} > {cat}
             </button>
           ))}
 
-          <button
-            className={`filtro-btn ${categoriaActiva === "todos" ? "active" : ""}`}
-            onClick={() => {
-              setCategoriaActiva("todos");
-              setFiltrosAbiertos(false);
-            }}
-          >
-            Ver todos
-          </button>
+          <button className={`filtro-btn ${categoriaActiva === "todos" ? "active" : ""}`} onClick={() => { setCategoriaActiva("todos"); setFiltrosAbiertos(false); }} > Ver todos </button>
         </div>
 
         {/* ORDENAR POR PRECIO */}
         <h5 className="filtro-title">Ordenar por precio</h5>
 
         <div className="filtro-orden">
-          <button
-            className={`filtro-btn ${ordenPrecio === "asc" ? "active" : ""}`}
-            onClick={() => {
-              setOrdenPrecio("asc");
-              setFiltrosAbiertos(false);
-            }}
-          >
-            Menor a mayor
-          </button>
+          <button className={`filtro-btn ${ordenPrecio === "asc" ? "active" : ""}`} onClick={() => { setOrdenPrecio("asc"); setFiltrosAbiertos(false); }} > Menor a mayor </button>
 
-          <button
-            className={`filtro-btn ${ordenPrecio === "desc" ? "active" : ""}`}
-            onClick={() => {
-              setOrdenPrecio("desc");
-              setFiltrosAbiertos(false);
-            }}
-          >
-            Mayor a menor
-          </button>
+          <button className={`filtro-btn ${ordenPrecio === "desc" ? "active" : ""}`} onClick={() => { setOrdenPrecio("desc"); setFiltrosAbiertos(false); }} >Mayor a menor</button>
 
-          <button
-            className={`filtro-btn ${ordenPrecio === "normal" ? "active" : ""}`}
-            onClick={() => {
-              setOrdenPrecio("normal");
-              setFiltrosAbiertos(false);
-            }}
-          >
-            Orden normal
-          </button>
+          <button className={`filtro-btn ${ordenPrecio === "normal" ? "active" : ""}`} onClick={() => { setOrdenPrecio("normal"); setFiltrosAbiertos(false);  }} > Orden normal </button>
         </div>
       </aside>
 
       {/* PRODUCTOS */}
-      <section className="catalogo-productos">
-        {productosFiltrados.map(producto => (
-          <ProductoCard
-            key={producto.id}
-            producto={producto}
-          />
-        ))}
-      </section>
+      <section className="catalogo-productos"> {productosFiltrados.map(producto => (
+          <ProductoCard key={producto.id} producto={producto} /> ))}</section>
 
     </div>
   );
