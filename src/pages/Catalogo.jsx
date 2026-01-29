@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ProductoCard from "../components/ProductoCard";
+import ProductoCard from "../moleculas/ProductoCard";
 import productos from "../data/productos";
 import { useCart } from "../global/CarritoContext";
-import "../Catalogo.css";
+import "../Css//Catalogo.css";
 
 const categorias = [
   "Shampoo",
