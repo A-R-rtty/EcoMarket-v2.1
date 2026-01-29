@@ -8,28 +8,37 @@ export default function Nosotros() {
 
         <h2 className="nosotros-title">Sobre Nosotros</h2>
 
-        <div className="nosotros-content">
-          <p>
-            <strong>EcoMarket</strong> está dedicada a la venta de productos
-            naturales, ecológicos y sustentables para el hogar y el cuidado personal.
+        <div className="nosotros-content-box">
+
+          <p className="nosotros-content">
+            EcoMarket está dedicada a la venta de productos naturales,
+            ecológicos y sustentables para el hogar y el cuidado personal.
           </p>
 
           <ul className="nosotros-list">
-            <li>Apoyamos a productores de marcas naturales y ecológicas.</li>
-            <li>Promovemos prácticas sustentables y envases reciclables.</li>
-            <li>Creemos en el comercio justo y el impacto social positivo.</li>
+            <li>
+              <i className="bi bi-leaf"></i>
+              Apoyamos a productores de marcas naturales y ecológicas.
+            </li>
+
+            <li>
+              <i className="bi bi-recycle"></i>
+              Promovemos prácticas sustentables y envases reciclables.
+            </li>
+
+            <li>
+              <i className="bi bi-heart"></i>
+              Creemos en el comercio justo y el impacto social positivo.
+            </li>
           </ul>
 
-          <p>
-            Nuestro equipo está comprometido con entregar el mejor producto en las mejores condiciones.
-          </p>
-
-          <p>
-            ¿Quieres formar parte de la comunidad? Escríbenos a{" "}
+          <p className="nosotros-content">
+            ¿Quieres formar parte de la comunidad?
             <a href="mailto:juntos@ecomarket.cl" className="nosotros-mail">
               juntos@ecomarket.cl
             </a>
           </p>
+
         </div>
 
         <h3 className="nosotros-subtitle">Nuestras tiendas</h3>

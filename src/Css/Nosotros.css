@@ -29,15 +29,14 @@
    ========================================================= */
 
 .nosotros-card{
-  background: #fff9eeeb;
-  max-width: 950px;
+  background: #fffdf7;
+  max-width: 980px;
   width: 95%;
   margin: auto;
-  border-radius: 18px;
-  box-shadow: 0 5px 28px rgba(0,0,0,0.15);
-  padding: 36px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  padding: 48px 50px;
 }
-
 
 /* =========================================================
    TÍTULOS
@@ -51,17 +50,21 @@
 .nosotros-title{
   color: #8B4513;
   font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  margin-bottom: 14px;
 }
 
 .nosotros-subtitle{
-  margin-top: 32px;
+  margin-top: 42px;
   color: #2E8B57;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .nosotros-subtitle-small{
   color: #8B4513;
-  margin-top: 28px;
+  margin-top: 32px;
+  font-size: 1.3rem;
 }
 
 
@@ -74,15 +77,25 @@
    - Ancho máximo
    - Espaciado de líneas
    ========================================================= */
-
 .nosotros-content{
-  color: #333;
-  max-width: 700px;
+  color: #2f3f36;
   font-size: 17px;
-  line-height: 1.7;
-  margin-bottom: 26px;
+  line-height: 1.85;
+  margin-bottom: 18px;
 }
 
+
+.nosotros-content-box{
+  background: #f9fcfa;
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 42px;
+  border: 1px solid #dceee4;
+}
+.nosotros-content-box:hover{
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
 
 /* =========================================================
    LISTAS
@@ -94,31 +107,40 @@
    ========================================================= */
 
 .nosotros-list{
-  margin: 16px 0;
-  padding-left: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 22px 0;
 }
 
 .nosotros-list li{
-  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #3f5e4a;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+.nosotros-list i{
+  color: #2e8b6f;
+  font-size: 18px;
+  margin-top: 3px;
+}
 
 /* =========================================================
    CORREO DE CONTACTO
    ---------------------------------------------------------
    Estilo visual del enlace de email
    ========================================================= */
-
 .nosotros-mail{
-  color: #2E8B57;
+  color: #2e8b6f;
   font-weight: 600;
-  margin-left: 6px;
 }
 
 .nosotros-mail:hover{
   text-decoration: underline;
 }
-
 
 /* =========================================================
    MAPA
@@ -130,10 +152,10 @@
    ========================================================= */
 
 .nosotros-map{
-  margin-top: 18px;
-  width: 100%;
-  border-radius: 15px;
+  margin-top: 24px;
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .nosotros-map iframe{
@@ -148,14 +170,11 @@
    ---------------------------------------------------------
    Lista de direcciones físicas
    ========================================================= */
-
 .nosotros-branches{
   font-size: 15px;
-  color: #6a5027;
-  margin-top: 18px;
-  padding-left: 18px;
+  color: #4a6b57;
+  margin-top: 20px;
 }
-
 
 /* =========================================================
    CAJA FINAL
@@ -164,12 +183,11 @@
    - Mensaje institucional
    - Información de atención virtual
    ========================================================= */
-
 .nosotros-footer-box{
-  margin-top: 28px;
-  background: #F3F7F0;
-  padding: 16px 18px;
-  border-radius: 10px;
+  margin-top: 36px;
+  background: #eef5ef;
+  padding: 20px 22px;
+  border-radius: 14px;
   font-size: 16px;
-  color: #4c622a;
+  color: #3f5e45;
 }
