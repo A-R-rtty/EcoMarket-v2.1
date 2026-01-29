@@ -103,10 +103,13 @@ export default function Perfil() {
         onChange={handleChange}
         className="perfil-textarea"
       />
-
       <div className="perfil-actions">
         <button onClick={handleSave}>
           Guardar datos
+        </button>
+
+        <button onClick={() => navigate("/historial")}>
+          🧾 Ver historial de compras
         </button>
       </div>
     </div>
