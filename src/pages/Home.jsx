@@ -4,6 +4,8 @@ import CarouselPrincipal from "../organismos/carousel";
 import CardNosotros from "../moleculas/cardNosotros";
 import { Link } from "react-router-dom";
 import "../Css/style.css";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Home() {
   return (
@@ -16,7 +18,7 @@ function Home() {
         <p>Cuida tu cuerpo y el planeta con EcoMarket</p>
 
         <Link to="/catalogo" className="btn btn-success mt-2">
-          Ver catálogo
+          <FontAwesomeIcon icon={faBars} />Ver catálogo
         </Link>
       </div>
 

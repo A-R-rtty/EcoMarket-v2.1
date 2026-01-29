@@ -89,3 +89,44 @@
 
 
 }
+.filtro-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f7a5a;                /* verde principal */
+  background-color: #ffffff;
+  border: 1.5px solid #1f7a5a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+/* Hover */
+.filtro-btn:hover {
+  background-color: #1f7a5a;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(31, 122, 90, 0.25);
+}
+
+/* Activo / seleccionado */
+.filtro-btn.active {
+  background-color: #145c43;
+  color: #ffffff;
+  border-color: #145c43;
+}
+
+/* Click */
+.filtro-btn:active {
+  transform: scale(0.96);
+}
+
+/* Opcional: deshabilitado */
+.filtro-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

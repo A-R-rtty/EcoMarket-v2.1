@@ -2,7 +2,7 @@ import react from 'react';
 import CarouselPrincipal from '../components/card';
 import CardProducto from '../components/card';
 import { Link } from "react-router-dom";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Bienvenida() {
@@ -13,7 +13,7 @@ function Bienvenida() {
                 <div className='col-xl-12'>
                     <br />
                     <h2 className='text-center mb-4'>
-                        ⭐ Productos destacados
+                        <FontAwesomeIcon icon={faStar} className="general-icon" />Productos destacados
                     </h2>
                     <br />
                 </div>

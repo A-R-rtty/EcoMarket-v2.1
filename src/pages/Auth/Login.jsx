@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../../global/UsuarioGlobal";
 import "../../Css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faAt, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faKey, faAt, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ function Login() {
 
 {/* CONTRASEÑA */}
 <div className="input-icon-wrapper">
-  <FontAwesomeIcon icon={faEye} className="input-icon" />
+  <FontAwesomeIcon icon={faKey} className="input-icon" />
   <input
     className="Login-box input-with-icon"
     type="password"

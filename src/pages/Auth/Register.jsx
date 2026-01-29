@@ -123,7 +123,7 @@ function Register() {
             <p style={{ color: "red", textAlign: "center" }}>{error}</p>
           )}
 
-          <button className="m-2 btn btn-success btn-icon mx-auto d-block login-btn" type="submit"><FontAwesomeIcon icon={faUserPlus} />Registrar</button>
+          <button className="m-2 btn btn-success btn-icon mx-auto d-block login-btn" type="submit"><FontAwesomeIcon icon={faUserPlus}/>Registrar</button>
         </form>
       </div>
     </div>
