@@ -12,7 +12,7 @@ export default function Perfil() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // 🔒 Teléfono: solo números y máximo 9 dígitos
+    // Teléfono: solo números y máximo 9 dígitos
     if (name === "telefono") {
       const soloNumeros = value.replace(/\D/g, "");
       if (soloNumeros.length > 9) return;
@@ -58,7 +58,7 @@ export default function Perfil() {
           disabled
         />
 
-        {/* 📱 Teléfono con +56 fijo */}
+        {/* Teléfono con +56 fijo */}
         <div className="telefono-wrapper">
           <span className="telefono-prefijo">+56</span>
           <input

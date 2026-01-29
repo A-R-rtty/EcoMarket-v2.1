@@ -438,3 +438,104 @@ section, .container {
   padding: 0;
   margin-top: 15px;
 }
+
+/* =========================
+   CONTENEDOR LOGIN / REGISTRO
+   ========================= */
+.auth-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD */
+.auth-card {
+  background: #A4E5D2;
+  width: 100%;
+  max-width: 520px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   INPUTS CON ICONOS
+   ========================= */
+.input-icon-wrapper {
+  position: relative;
+  width: 50%;
+  margin: 0 auto 1rem auto;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: #2f6b57;
+  font-size: 1rem;
+}
+
+/* input base */
+.Login-box {
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  padding: 12px 18px;
+  outline: none;
+  font-size: 0.95rem;
+  background: #f4fff9;
+}
+
+/* espacio para el icono */
+.input-with-icon {
+  padding-left: 45px;
+}
+
+/* focus elegante */
+.Login-box:focus {
+  box-shadow: 0 0 0 2px rgba(47, 107, 87, 0.25);
+}
+
+/* =========================
+   BOTÓN LOGIN
+   ========================= */
+.login-btn {
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   TEXTO ERROR
+   ========================= */
+.error-text {
+  color: #b02a37;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;               /* espacio entre icono y texto */
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-icon svg {
+  font-size: 1rem;
+}
+
+.btn-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+

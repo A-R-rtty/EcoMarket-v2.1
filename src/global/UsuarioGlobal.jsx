@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const UserContext = createContext();
 
@@ -6,7 +6,6 @@ export function UserProvider({ children }) {
 
   const [user, setUser] = useState({
     nombre: "",
-    apellido: "",
     email: "",
     direccion: "",
     telefono: ""
@@ -14,17 +13,22 @@ export function UserProvider({ children }) {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  // LOGIN
+  // 🔁 Mantener sesión
+  useEffect(() => {
+    const auth = localStorage.getItem("auth");
+    if (auth === "true") {
+      setIsLogged(true);
+    }
+  }, []);
+
   const login = (userData) => {
     setUser(prev => ({ ...prev, ...userData }));
     setIsLogged(true);
   };
 
-  // LOGOUT
   const logout = () => {
     setUser({
       nombre: "",
-      apellido: "",
       email: "",
       direccion: "",
       telefono: ""
@@ -33,21 +37,12 @@ export function UserProvider({ children }) {
     localStorage.removeItem("auth");
   };
 
-  // ACTUALIZAR PERFIL
   const updateUser = (newData) => {
     setUser(prev => ({ ...prev, ...newData }));
   };
 
   return (
-    <UserContext.Provider
-      value={{
-        user,
-        isLogged,
-        login,
-        logout,
-        updateUser
-      }}
-    >
+    <UserContext.Provider value={{ user, isLogged, login, logout, updateUser }}>
       {children}
     </UserContext.Provider>
   );

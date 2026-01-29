@@ -1,100 +1,78 @@
 import React, { useState } from "react";
-import "../../Css/style.css";
-import { useUser } from "../../global/UsuarioGlobal";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../global/UsuarioGlobal";
+import "../../Css/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faAt, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
+  const navigate = useNavigate();
+  const { login } = useUser();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    const { login } = useUser();
-    const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // Credenciales falsas
+    if (email === "admin@admin.com" && password === "1234") {
 
-        // Credenciales falsas (ejemplo)
-        if (email === "admin@admin.com" && password === "1234") {
+      login({
+        nombre: "Admin",
+        email: email
+      });
 
-            login({
-                nombre: "Admin",
-                email: email
-            });
+      localStorage.setItem("auth", "true");
 
-            // opcional: persistir sesión
-            localStorage.setItem("auth", "true");
+      navigate("/"); // vuelve al home logueado
+    } else {
+      setError("Credenciales incorrectas ❌");
+    }
+  };
 
-            navigate("/"); // o "/perfil"
-        } else {
-            setError("Credenciales incorrectas ❌");
-        }
-    };
+  return (
+    <div style={{ minHeight: "80vh", padding: "38px 0" }} className="row align-items-center">
+      <div style={{ background: "#A4E5D2", maxWidth: 800, margin: "auto", borderRadius: 16, boxShadow: "0 5px 28px #ccb", padding: 36 }}>
+        <form onSubmit={handleSubmit}>
+          <img className="mx-auto d-block w-6" src="/images/Logo-Oscuro.png" alt="Logo" />
+          <h2 className="text-center">Iniciar Sesión</h2>
 
-    return (
-        <div style={{ minHeight: '80vh', padding: '38px 0' }} className='row align-items-center'>
-            <div
-                style={{
-                    background: '#A4E5D2',
-                    maxWidth: 800,
-                    margin: 'auto',
-                    borderRadius: 16,
-                    boxShadow: '0 5px 28px #ccb',
-                    padding: 36
-                }}
-            >
-                <form onSubmit={handleSubmit}>
+          {/* CORREO */}
+<div className="input-icon-wrapper">
+  <FontAwesomeIcon icon={faAt} className="input-icon" />
+  <input
+    className="Login-box input-with-icon"
+    type="email"
+    placeholder="Correo"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+  />
+</div>
 
-                    <h2 className='text-center'>
-                        <img
-                            className="rounded"
-                            src="/images/logo-oscuro.png"
-                            alt="Logo"
-                            style={{ width: '20%' }}
-                        />
-                    </h2>
+{/* CONTRASEÑA */}
+<div className="input-icon-wrapper">
+  <FontAwesomeIcon icon={faEye} className="input-icon" />
+  <input
+    className="Login-box input-with-icon"
+    type="password"
+    placeholder="Contraseña"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    required
+  />
+</div>
 
-                    <h2 className='text-center'>Iniciar Sesión</h2>
-                    <br />
 
-                    <input
-                        className="text-center d-grid gap-2 col-6 mx-auto Login-box"
-                        type="email"
-                        placeholder="Correo"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+          {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
 
-                    <input
-                        className="text-center d-grid gap-2 col-6 mx-auto Login-box"
-                        type="password"
-                        placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-
-                    {error && (
-                        <p className="text-center mt-2" style={{ color: "red" }}>
-                            {error}
-                        </p>
-                    )}
-
-                    <br />
-
-                    <button
-                        className="text-center d-grid gap-2 mx-auto login-btn"
-                        type="submit"
-                    >
-                        Entrar
-                    </button>
-
-                </form>
-            </div>
-        </div>
-    );
+          <button className="m-2 btn btn-success btn-icon mx-auto d-block login-btn" type="submit"><FontAwesomeIcon icon={faRightToBracket} /> Iniciar Sesión</button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default Login;

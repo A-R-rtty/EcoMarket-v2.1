@@ -1,5 +1,5 @@
 import React from 'react';
-import { faShoppingCart, faSearch, faLeaf, faUsers, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faSearch, faLeaf, faUsers, faUser, faRightToBracket, faUserCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "../Css/style.css";
@@ -9,10 +9,9 @@ import { useUser } from "../global/UsuarioGlobal";
 function NavBarPrincipal() {
 
   const { cart } = useCart();
-  const { user, logout } = useUser();
+  const { user, isLogged, logout } = useUser(); // ✅ AQUÍ
 
   const cantidadTotal = cart.reduce((acc, p) => acc + p.cantidad, 0);
-  const isLogged = user.logged;
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -31,7 +30,6 @@ function NavBarPrincipal() {
           {/* IZQUIERDA */}
           <div className="nav-left">
 
-            {/* BUSCADOR */}
             <form className="search-box">
               <button className="btn-search" type="button">
                 <FontAwesomeIcon icon={faSearch} />
@@ -43,7 +41,6 @@ function NavBarPrincipal() {
               />
             </form>
 
-            {/* CARRITO */}
             <Link to="/carrito" className="cart-link position-relative">
               <FontAwesomeIcon icon={faShoppingCart} />
               {cantidadTotal > 0 && (
@@ -87,7 +84,7 @@ function NavBarPrincipal() {
                       <Link className="dropdown-item" to="/perfil">Perfil</Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/historial">Historial</Link>
+                      <Link className="dropdown-item" to="/historial">Boleta</Link>
                     </li>
                     <li>
                       <button
@@ -101,10 +98,10 @@ function NavBarPrincipal() {
                 ) : (
                   <>
                     <li>
-                      <Link className="dropdown-item" to="/Login">Iniciar Sesión</Link>
+                      <Link className="dropdown-item" to="/Login"><FontAwesomeIcon icon={faRightToBracket} /> Iniciar Sesión</Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/Registro">Registrarse</Link>
+                      <Link className="dropdown-item" to="/Registro"><FontAwesomeIcon icon={faUserCheck} /> Registrarse</Link>
                     </li>
                   </>
                 )}
