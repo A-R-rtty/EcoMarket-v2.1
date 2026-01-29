@@ -1,4 +1,4 @@
-import "../tracking.css"
+import "../Css/tracking.css"
 
 export default function Tracking({ estado }) {
 

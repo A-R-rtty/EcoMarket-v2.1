@@ -1,10 +1,10 @@
-import './App.css'
-import './style.css'
+import './Css/App.css'
+import './Css/style.css'
 
 import { Routes, Route } from "react-router-dom"
 
-import NavBarPrincipal from './components/navbar'
-import Footer from './components/footer'
+import NavBarPrincipal from './organismos/navbar'
+import Footer from './organismos/footer'
 
 import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'

@@ -2,7 +2,7 @@ import React from 'react';
 import { faShoppingCart, faSearch, faLeaf, faUsers, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import "../style.css";
+import "../Css//style.css";
 import { useCart } from "../global/CarritoContext";
 import { useUser } from "../global/UsuarioGlobal";
 

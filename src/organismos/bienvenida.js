@@ -1,6 +1,6 @@
 import react from 'react';
-import CarouselPrincipal from './card';
-import CardProducto from './card';
+import CarouselPrincipal from '../components/card';
+import CardProducto from '../components/card';
 import { Link } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
