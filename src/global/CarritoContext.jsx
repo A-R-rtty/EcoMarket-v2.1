@@ -8,21 +8,22 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([])
 
   // Agregar producto
-  const addToCart = (producto) => {
+  const addToCart = (producto, cantidad) => {
     setCart(prev => {
       const existe = prev.find(p => p.id === producto.id)
 
       if (existe) {
         return prev.map(p =>
           p.id === producto.id
-            ? { ...p, cantidad: p.cantidad + 1 }
+            ? { ...p, cantidad: p.cantidad + cantidad }
             : p
         )
       }
-      // addToCart agrega el producto al carrito con cantidad 1 si no existe, sirve para evitar que se agreguen productos duplicados
-      return [...prev, { ...producto, cantidad: 1 }]
+
+      return [...prev, { ...producto, cantidad }]
     })
   }
+
 
   // Quitar producto completo
   const removeFromCart = (id) => {
@@ -39,7 +40,7 @@ export function CartProvider({ children }) {
   }
 
   const total = cart.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
-  
+
   // Vaciar carrito
   const clearCart = () => setCart([])
   return (

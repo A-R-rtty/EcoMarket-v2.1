@@ -83,10 +83,7 @@ export default function ProductoCard({ producto }) {
 
           {/* Botón carrito */}
           <button
-            className={`btn btn-sm mt-auto ${agregado ? "btn-outline-success" : "btn-success"}`}
-            onClick={handleAdd}
-            disabled={producto.stock === 0}
-          >
+            className={`btn btn-sm mt-auto ${agregado ? "btn-outline-success" : "btn-success"}`} onClick={handleAdd} disabled={producto.stock === 0}>
             <FontAwesomeIcon icon={agregado ? faCheck : faCartArrowDown} />{" "}
             {agregado ? "Agregado" : "Añadir al carrito"}
           </button>

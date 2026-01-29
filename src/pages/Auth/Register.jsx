@@ -50,9 +50,10 @@ function Register() {
 
   return (
     <div style={{ minHeight: '80vh', padding: '38px 0' }} className='row align-items-center'>
-      <div style={{ background: '#A4E5D2', maxWidth: 950, margin: 'auto', borderRadius: 16, boxShadow: '0 5px 28px #ccb', padding: 36 }}>
+      <div style={{ background: '#A4E5D2', maxWidth: 800, margin: 'auto', borderRadius: 16, boxShadow: '0 5px 28px #ccb', padding: 36 }}>
         
         <form onSubmit={handleSubmit}>
+          <h2 className='text-center'><img className="rounded" src="images/logo-oscuro.png" alt="" style={{ width: '20%' }} /></h2>
           <h2 className='text-center'>Registro</h2>
 
           <input
