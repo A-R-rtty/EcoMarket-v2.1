@@ -300,3 +300,27 @@ a{
     text-decoration: none;
     color: black;
 }
+
+
+/* =========================================================
+   Login y boton
+   ---------------------------------------------------------
+   Contenedor del input + botón de búsqueda
+   ========================================================= */
+
+.Login-box{
+  display: flex;
+  align-items: center;
+  background: #f1faf6;
+  border-radius: 30px;
+  padding: 8px;
+  border: 8px solid #b7e1cd;
+}
+
+.login-btn{
+  display: flex;
+  align-items: center;
+  background: #3fa87e;
+  border-radius: 30px;
+  padding: 8px;
+}

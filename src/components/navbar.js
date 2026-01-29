@@ -90,10 +90,10 @@ function NavBarPrincipal() {
                 ) : (
                   <>
                     <li>
-                      <Link className="dropdown-item" to="/login">Iniciar Sesión</Link>
+                      <Link className="dropdown-item" to="/Login">Iniciar Sesión</Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/register">Registrarse</Link>
+                      <Link className="dropdown-item" to="/Registro">Registrarse</Link>
                     </li>
                   </>
                 )}
