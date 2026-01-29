@@ -53,11 +53,12 @@ export default function Pago() {
         // AQUÍ SE CREA LA ORDEN REAL
         crearOrden({
             productos: carrito,
-            total: total,
+            total,
             envioTipo: order.envioTipo,
             pagoMetodo: order.pagoMetodo,
             direccion: user.direccion,
-            telefono: user.telefono
+            telefono: user.telefono,
+            userEmail: user.email   // asociación al usuario
         })
 
         clearCarrito()

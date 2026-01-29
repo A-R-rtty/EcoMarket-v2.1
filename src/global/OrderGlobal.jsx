@@ -31,22 +31,26 @@ export function OrderProvider({ children }) {
 
     function crearOrden(data) {
 
+        const estadoInicial =
+            data.envioTipo === "retiro" ? "reservado" : "confirmado"
+
         const nuevaOrden = {
-            id: Date.now(),
-            productos: data.productos,
-            total: data.total,
-            envioTipo: data.envioTipo,
-            pagoMetodo: data.pagoMetodo,
-            direccion: data.direccion,
-            telefono: data.telefono,
-            estado: "confirmado",
-            fecha: new Date().toISOString()
-        }
+        id: Date.now(),
+        userEmail: data.userEmail,   // 👈 CLAVE
+        productos: data.productos,
+        total: data.total,
+        envioTipo: data.envioTipo,
+        pagoMetodo: data.pagoMetodo,
+        direccion: data.direccion,
+        telefono: data.telefono,
+        estado: data.envioTipo === "retiro" ? "reservado" : "confirmado",
+        fecha: new Date().toISOString()
+    }
 
         setOrders(prev => [...prev, nuevaOrden])
         setCurrentOrder(nuevaOrden)
 
-        simularFlujo(nuevaOrden.id)
+        simularFlujo(nuevaOrden)
     }
 
     function actualizarEstado(id, nuevoEstado) {
@@ -65,20 +69,32 @@ export function OrderProvider({ children }) {
     }
 
 
-    function simularFlujo(id) {
+    function simularFlujo(orden) {
 
+        // RETIRO EN SUCURSAL
+        if (orden.envioTipo === "retiro") {
+
+            setTimeout(() => {
+                actualizarEstado(orden.id, "entregado")
+            }, 5000)
+
+            return
+        }
+
+        // ENVÍOS NORMALES
         setTimeout(() => {
-            actualizarEstado(id, "preparando")
+            actualizarEstado(orden.id, "preparando")
         }, 2000)
 
         setTimeout(() => {
-            actualizarEstado(id, "despachado")
+            actualizarEstado(orden.id, "despachado")
         }, 5000)
 
         setTimeout(() => {
-            actualizarEstado(id, "entregado")
+            actualizarEstado(orden.id, "entregado")
         }, 9000)
     }
+
 
     function setEnvio(tipo) {
         setOrder(prev => ({ ...prev, envioTipo: tipo }))
