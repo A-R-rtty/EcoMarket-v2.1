@@ -18,6 +18,7 @@ import Perfil from './pages/Auth/Perfil'
 import Historial from './pages/Historial'
 import Login from './pages/Auth/Login'
 import Register from "./pages/Auth/Register";
+import VerBoleta from './pages/VerBoleta'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/pago" element={<Pago />} />
         <Route path="/confirmacion" element={<Confirmacion />} />
+        <Route path="/boleta/:id" element={<VerBoleta />} />
 
         {/* USUARIO */}
         <Route path="/perfil" element={<Perfil />} />
