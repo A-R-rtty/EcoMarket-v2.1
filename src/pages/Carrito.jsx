@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useCart } from "../global/CarritoContext"
+import "../Css/style.css"
 
 export default function Carrito() {
 
@@ -9,58 +10,60 @@ export default function Carrito() {
   const total = cart.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
 
   return (
-    <div className="container py-4">
+    <div className="carrito container py-4">
 
-      <h2>Carrito de compras</h2>
+      <h2 className="mb-4">🛒 Carrito de compras</h2>
 
       {cart.length === 0 ? (
-        <p>El carrito está vacío</p>
+        <p className="text-muted">Tu carrito está vacío</p>
       ) : (
         <>
           {cart.map(p => (
-            <div key={p.id} className="d-flex align-items-center border-bottom py-2">
+            <div key={p.id} className="carrito-item">
 
-              <img src={p.imagen} width="60" alt={p.nombre} />
+              <img src={p.imagen} alt={p.nombre} />
 
-              <div className="ms-3 flex-grow-1">
+              <div className="info">
                 <h6>{p.nombre}</h6>
-                <p>${p.precio}</p>
+                <span className="precio">${p.precio}</span>
               </div>
 
-              <input 
+              <input
                 type="number"
                 min="1"
                 value={p.cantidad}
                 onChange={e => updateCantidad(p.id, Number(e.target.value))}
-                style={{ width: "60px" }}
               />
 
-              <button 
-                className="btn btn-danger btn-sm ms-3"
+              <button
+                className="btn-remove"
                 onClick={() => removeFromCart(p.id)}
               >
-                X
+                ✕
               </button>
 
             </div>
           ))}
 
-          <div className="mt-4">
-            <h4>Total: ${total}</h4>
+          <div className="carrito-footer">
+            <strong>Subtotal: ${total}</strong>
 
-            <button className="btn btn-warning me-2" onClick={clearCart}>
-              Vaciar carrito
-            </button>
+            <div className="acciones">
+              <button className="btn btn-outline-warning" onClick={clearCart}>
+                Vaciar carrito
+              </button>
 
-            <button 
-              className="btn btn-success"
-              onClick={() => navigate("/checkout")}
-            >
-              Pagar
-            </button>
+              <button
+                className="btn btn-success"
+                onClick={() => navigate("/checkout")}
+              >
+                Ir a checkout
+              </button>
+            </div>
           </div>
         </>
       )}
     </div>
+
   )
 }
