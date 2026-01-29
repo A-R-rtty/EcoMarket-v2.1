@@ -50,7 +50,7 @@ export default function Pago() {
             return
         }
 
-        // AQUÍ SE CREA LA ORDEN REAL
+        // AQUÍ SE CREA LA ORDEN
         crearOrden({
             productos: carrito,
             total,

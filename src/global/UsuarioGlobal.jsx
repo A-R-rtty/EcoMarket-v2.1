@@ -13,7 +13,7 @@ export function UserProvider({ children }) {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  // 🔁 Mantener sesión
+  // Mantener sesión
   useEffect(() => {
     const auth = localStorage.getItem("auth");
     if (auth === "true") {

@@ -5,7 +5,7 @@ import "../Css/style.css"
 export default function Carrito() {
 
   const { cart, removeFromCart, updateCantidad, clearCart } = useCart()
-  const navigate = useNavigate()   // 👈
+  const navigate = useNavigate()   
 
   const total = cart.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
 

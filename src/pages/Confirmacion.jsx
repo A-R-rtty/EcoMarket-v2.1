@@ -29,8 +29,6 @@ export default function Confirmacion() {
                 estado={currentOrder.estado}
                 envioTipo={currentOrder.envioTipo}
             />
-
-            {/* ✅ BOLETA UNA SOLA VEZ */}
             <Boleta order={currentOrder} />
 
             <div className="confirmacion-card">
