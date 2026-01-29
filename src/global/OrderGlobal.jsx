@@ -36,7 +36,7 @@ export function OrderProvider({ children }) {
 
         const nuevaOrden = {
         id: Date.now(),
-        userEmail: data.userEmail,   // 👈 CLAVE
+        userEmail: data.userEmail,   
         productos: data.productos,
         total: data.total,
         envioTipo: data.envioTipo,

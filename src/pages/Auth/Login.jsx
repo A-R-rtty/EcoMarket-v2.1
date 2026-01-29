@@ -4,7 +4,7 @@ import { useUser } from "../../global/UsuarioGlobal";
 import "../../Css/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faAt, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-
+  //Todos estos datos se guardan en Local Storage
 function Login() {
   const navigate = useNavigate();
   const { login } = useUser();

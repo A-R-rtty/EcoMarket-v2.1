@@ -34,7 +34,7 @@ function Register() {
       return;
     }
 
-    // 🔐 REGISTRO + LOGIN AUTOMÁTICO
+    // REGISTRO + LOGIN AUTOMÁTICO
     login({
       nombre: form.nombre,
       email: form.email,
