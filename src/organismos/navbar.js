@@ -2,17 +2,17 @@ import React from 'react';
 import { faShoppingCart, faSearch, faLeaf, faUsers, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import "../Css//style.css";
+import "../Css/style.css";
 import { useCart } from "../global/CarritoContext";
 import { useUser } from "../global/UsuarioGlobal";
 
 function NavBarPrincipal() {
 
   const { cart } = useCart();
-
-  const { user, isLogged } = useUser();
+  const { user, logout } = useUser();
 
   const cantidadTotal = cart.reduce((acc, p) => acc + p.cantidad, 0);
+  const isLogged = user.logged;
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -31,13 +31,13 @@ function NavBarPrincipal() {
           {/* IZQUIERDA */}
           <div className="nav-left">
 
-            {/* SEARCH */}
-            <form className="search-box" role="search">
+            {/* BUSCADOR */}
+            <form className="search-box">
               <button className="btn-search" type="button">
                 <FontAwesomeIcon icon={faSearch} />
               </button>
               <input
-                className="search-input search-box"
+                className="search-input"
                 type="search"
                 placeholder="¿Qué estás buscando?"
               />
@@ -72,12 +72,15 @@ function NavBarPrincipal() {
 
             {/* PERFIL */}
             <li className="nav-item dropdown">
-              <span className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+              <span
+                className="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
                 <FontAwesomeIcon icon={faUser} /> {isLogged ? user.nombre : "Cuenta"}
               </span>
 
               <ul className="dropdown-menu dropdown-menu-end">
-
                 {isLogged ? (
                   <>
                     <li>
@@ -85,6 +88,14 @@ function NavBarPrincipal() {
                     </li>
                     <li>
                       <Link className="dropdown-item" to="/historial">Historial</Link>
+                    </li>
+                    <li>
+                      <button
+                        className="dropdown-item text-danger"
+                        onClick={logout}
+                      >
+                        Cerrar sesión
+                      </button>
                     </li>
                   </>
                 ) : (
@@ -97,12 +108,10 @@ function NavBarPrincipal() {
                     </li>
                   </>
                 )}
-
               </ul>
             </li>
 
           </ul>
-
         </div>
       </div>
     </nav>
