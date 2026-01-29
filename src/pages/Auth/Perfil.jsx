@@ -9,10 +9,24 @@ export default function Perfil() {
 
   const [form, setForm] = useState(user);
 
+  /* manejar cambio de imagen */
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setForm({
+        ...form,
+        avatar: reader.result
+      });
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Teléfono: solo números y máximo 9 dígitos
     if (name === "telefono") {
       const soloNumeros = value.replace(/\D/g, "");
       if (soloNumeros.length > 9) return;
@@ -26,7 +40,7 @@ export default function Perfil() {
   const handleSave = () => {
     updateUser({
       ...form,
-      telefono: "+56" + form.telefono // guardamos teléfono completo
+      telefono: "+56" + form.telefono
     });
     navigate(-1);
   };
@@ -34,6 +48,24 @@ export default function Perfil() {
   return (
     <div className="perfil-container">
       <h2>Mi Perfil</h2>
+
+      {/* FOTO PERFIL */}
+      <div className="perfil-avatar">
+        <img
+          src={form.avatar || "/images/Usuario.png"}
+          alt="Foto de perfil"
+        />
+
+        <label className="avatar-btn">
+          Cambiar foto
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            hidden
+          />
+        </label>
+      </div>
 
       <h4 className="perfil-subtitle">Datos personales</h4>
       <div className="perfil-form">
@@ -58,7 +90,6 @@ export default function Perfil() {
           disabled
         />
 
-        {/* Teléfono con +56 fijo */}
         <div className="telefono-wrapper">
           <span className="telefono-prefijo">+56</span>
           <input
@@ -103,6 +134,7 @@ export default function Perfil() {
         onChange={handleChange}
         className="perfil-textarea"
       />
+
       <div className="perfil-actions">
         <button onClick={handleSave}>
           Guardar datos
