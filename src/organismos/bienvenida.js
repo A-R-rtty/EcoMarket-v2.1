@@ -12,7 +12,9 @@ function Bienvenida() {
             <div className='row'>
                 <div className='col-xl-12'>
                     <br />
-                    <h2 className='text-center'><strong>Productos destacados</strong></h2>
+                    <h2 className='text-center mb-4'>
+                        ⭐ Productos destacados
+                    </h2>
                     <br />
                 </div>
             </div>
@@ -35,10 +37,6 @@ function Bienvenida() {
             </div>
             <br />
             <div className='text-center d-grid gap-2 col-6 mx-auto'>
-                <Link to="/catalogo" className="btn btn-outline-success">
-                    Ver catálogo
-                </Link>
-
             </div>
         </div>
 
