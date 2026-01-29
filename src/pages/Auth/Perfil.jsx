@@ -1,4 +1,4 @@
-import { useUser } from "../global/UsuarioGlobal"
+import { useUser } from "../../global/UsuarioGlobal"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
